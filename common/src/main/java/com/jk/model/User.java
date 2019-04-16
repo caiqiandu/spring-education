@@ -1,5 +1,7 @@
 package com.jk.model;
 
+import java.io.Serializable;
+
 /**
  * @author ：mmzs
  * @date ：Created in 2019/4/15 19:24
@@ -7,11 +9,19 @@ package com.jk.model;
  * @modified By：
  * @version: $
  */
-public class User {
+public class User implements Serializable {
+    private static final long serialVersionUID = 5306254103210693467L;
     private Integer id;
-    private String name;
-    private String loginnumber;
-    private String password;
+    private String name;//姓名
+    private Integer sex;//1:男；2：女
+    private String qqnumber;//qq号码
+    private Integer studentId;//学历
+    private String gradate;//毕业时间
+    private String money;//当前薪资
+    private Integer status;//当前状态
+    private String loginnumber;//手机号
+    private String password;//密码
+
 
     public Integer getId() {
         return id;
@@ -45,11 +55,65 @@ public class User {
         this.password = password;
     }
 
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public String getQqnumber() {
+        return qqnumber;
+    }
+
+    public void setQqnumber(String qqnumber) {
+        this.qqnumber = qqnumber;
+    }
+
+    public Integer getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getGradate() {
+        return gradate;
+    }
+
+    public void setGradate(String gradate) {
+        this.gradate = gradate;
+    }
+
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", qqnumber='" + qqnumber + '\'' +
+                ", studentId=" + studentId +
+                ", gradate='" + gradate + '\'' +
+                ", money='" + money + '\'' +
+                ", status=" + status +
                 ", loginnumber='" + loginnumber + '\'' +
                 ", password='" + password + '\'' +
                 '}';

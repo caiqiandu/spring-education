@@ -4,7 +4,12 @@ spring:
   application:
     name: sprin-feign
 
-
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 500
 eureka:
   client:
     service-url:

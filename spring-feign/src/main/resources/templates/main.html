@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script th:src="@{/js/easyui1.5/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap3/js/bootstrap.js}"></script>
+<link rel="stylesheet" th:href="@{/js/bootstrap3/css/bootstrap.css}">
+
+<script th:src="@{/js/bootstrap-bootbox/bootbox.js}"></script>
+<script th:src="@{/js/bootbox/bootbox.all.min.js}"></script>
+<script th:src="@{/js/bootStrap-addTabs/bootstrap.addtabs.min.js}"></script>
+
+<link rel="stylesheet" th:href="@{/js/bootStrap-addTabs/bootstrap.addtabs.css}">
+<link rel="stylesheet" th:href="@{/js/bootstrap-treeview/bootstrap-treeview.min.css}">
+
+<script th:src="@{/js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js}"></script>
+<script th:src="@{/js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js}"></script>
+<link rel="stylesheet" th:href="@{/js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css}">
+<script th:src="@{/js/bootstrap-table/bootstrap-table.js}"></script>
+<link rel="stylesheet" th:href="@{/js/bootstrap-table/bootstrap-table.css}">
+<script th:src="@{/js/bootstrap-table/locale/bootstrap-table-zh-CN.js}"></script>
+<a onclick="xianshi()" ></a>
+用户姓名:<span id="name"></span>
+<a id="updatePasswordBtn" >修改密码</a>
+
+</div>
+<div id="passwordDialog" class="easyui-dialog" data-options="title:'修改密码',closed:true,modal:true,
+  buttons:[{
+  text:'修改',
+  iconCls:'icon-edit',
+  handler:function(){
+  update();
+  }
+  }]" style="width: 300px;height: 200px">
+    <form id="passwordForm" method="post" >
+        <table>
+            <tr>
+                <td>原始密码</td>
+                <td><input type="text" class="easyui-passwordbox" name="oldPassword"></td>
+            </tr>
+            <tr>
+                <td>新密码</td>
+                <td><input type="text" class="easyui-passwordbox" name="password"></td>
+            </tr>
+            <tr>
+                <td>确认密码</td>
+                <td><input type="text" class="easyui-passwordbox" name="password2"></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+</body>
+<script>
+    $(function () {
+        xianshi();
+    })
+    function xianshi(){
+       $.ajax({
+           url:'../xianshi',
+           success:function (data) {
+               $("#name").text(data.name);
+           }
+       })
+
+    }
+
+</script>
+</html>
